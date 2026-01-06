@@ -15,7 +15,7 @@ int main() {
 
     // CADASTRO CARTA 1
     printf("--- Cadastro da Carta 1 ---\n");
-    printf("Digite o estado (ex: SP): ");
+    printf("Digite o estado: ");
     scanf(" %9s", estado1);
     printf("Digite o codigo da carta: ");
     scanf(" %4s", codigo1);
