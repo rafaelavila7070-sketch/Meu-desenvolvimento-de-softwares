@@ -58,7 +58,7 @@ int main() {
     super_poder2 = (double)populacao2 + area2 + PIB2 + (double)NPT2 + PIB_per_capita2 + (1.0 / densidade2);
 
     //EXIBIÇÃO DOS DADOS DAS CARTAS
-    printf("\n DADOS DA CARTA 1");
+    printf("\n DADOS DA CARTA 1\n");
     printf("\nEstado: %s", estado1);
     printf("\nCódigo: %s", codigo1);
     printf("\nCidade: %s", nome1);
@@ -68,10 +68,10 @@ int main() {
     printf("\nPontos Turísticos: %d", NPT1);
     printf("\nDensidade Populacional: %.2f hab/km²", densidade1);
     printf("\nPIB per Capita: R$ %.2f", PIB_per_capita1);
-    printf("\nSuper Poder: %.2f", super_poder1);
+    printf("\nSuper Poder: %.2f\n", super_poder1);
     
 
-    printf("\n DADOS DA CARTA 2");
+    printf("\n DADOS DA CARTA 2\n");
     printf("\nEstado: %s", estado2);
     printf("\nCódigo: %s", codigo2);
     printf("\nCidade: %s", nome2);
@@ -82,7 +82,7 @@ int main() {
     printf("\nDensidade Populacional: %.2f hab/km²", densidade2);
     printf("\nPIB per Capita: R$ %.2f", PIB_per_capita2);
     printf("\nSuper Poder: %.2f", super_poder2);
-    printf("\n-------------------------------------");
+    printf("\n-------------------------------------\n");
 
     
     //COMPARAÇÃO E RESULTADO FINAL
