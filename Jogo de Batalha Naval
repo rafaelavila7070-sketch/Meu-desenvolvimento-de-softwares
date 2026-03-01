@@ -1,0 +1,105 @@
+#include <stdio.h>
+
+
+#define TAM_TAB 10
+#define TAM_HAB 5
+
+// Função para inicializar matriz
+void inicializar(int matriz[TAM_TAB][TAM_TAB]) {
+    for(int i = 0; i < TAM_TAB; i++) {
+        for(int j = 0; j < TAM_TAB; j++) {
+            matriz[i][j] = 0;
+        }
+    }
+}
+
+// Função para imprimir tabuleiro
+void imprimir(int matriz[TAM_TAB][TAM_TAB]) {
+    for(int i = 0; i < TAM_TAB; i++) {
+        for(int j = 0; j < TAM_TAB; j++) {
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+
+int main() {
+
+    int tabuleiro[TAM_TAB][TAM_TAB];
+    inicializar(tabuleiro);
+
+    int cone[TAM_HAB][TAM_HAB] = {0};
+    int cruz[TAM_HAB][TAM_HAB] = {0};
+    int octaedro[TAM_HAB][TAM_HAB] = {0};
+
+    int centro = TAM_HAB / 2;
+
+    // 🔥 CONE
+    for(int i = 0; i < TAM_HAB; i++) {
+        for(int j = 0; j < TAM_HAB; j++) {
+            if(j >= (centro - i) && j <= (centro + i)) {
+                cone[i][j] = 1;
+            }
+        }
+    }
+
+    // ✚ CRUZ
+    for(int i = 0; i < TAM_HAB; i++) {
+        for(int j = 0; j < TAM_HAB; j++) {
+            if(i == centro || j == centro) {
+                cruz[i][j] = 1;
+            }
+        }
+    }
+
+    // 💎 OCTAEDRO
+    for(int i = 0; i < TAM_HAB; i++) {
+        for(int j = 0; j < TAM_HAB; j++) {
+            if(abs(i - centro) + abs(j - centro) <= 1) {
+                octaedro[i][j] = 1;
+            }
+        }
+    }
+
+    int origemLinha = 2;
+    int origemColuna = 2;
+
+    // Aplicar CONE
+    for(int i = 0; i < TAM_HAB; i++) {
+        for(int j = 0; j < TAM_HAB; j++) {
+            if(cone[i][j] == 1) {
+                tabuleiro[origemLinha + i][origemColuna + j] = 1;
+            }
+        }
+    }
+
+    // Aplicar CRUZ
+    origemLinha = 0;
+    origemColuna = 5;
+
+    for(int i = 0; i < TAM_HAB; i++) {
+        for(int j = 0; j < TAM_HAB; j++) {
+            if(cruz[i][j] == 1) {
+                tabuleiro[origemLinha + i][origemColuna + j] = 1;
+            }
+        }
+    }
+
+    // Aplicar OCTAEDRO
+    origemLinha = 5;
+    origemColuna = 3;
+
+    for(int i = 0; i < TAM_HAB; i++) {
+        for(int j = 0; j < TAM_HAB; j++) {
+            if(octaedro[i][j] == 1) {
+                tabuleiro[origemLinha + i][origemColuna + j] = 1;
+            }
+        }
+    }
+
+    printf("Resultado final!\n\n");
+    imprimir(tabuleiro);
+
+    return 0;
+}
